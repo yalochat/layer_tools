@@ -1,14 +1,39 @@
 # Layer Tools
 
+This is a library with helper functions to use the API of Layer.
 
-## Add operator to conversations from user
+## Usage
 
-To add operator to conversation, follow the nex command:
+- Run the command `npm install yalo-layer` use the flag `--save` to add your `package.json` file.
+- See the example:
 
+```javascript
+
+const YaloLayer = require('yalo-layer')
+
+const internals =  {}
+
+internals.createConversation = () => {
+	let userInfo = {
+		id: 'id',
+		nickname: 'nickname'
+	}
+
+	let participants = ['participant1', 'participant2']
+	let typeConversation = 'type-conversation'
+	let sessionToken = 'ABCD123456'
+
+	YaloLayer.createConversation(userInfo, participants, typeConversation, sessionToken)
+		.then(conversation => {
+			console.log(conversation)
+		})
+		.error(error => {
+			console.log('An error has occurred when tried to create a conversation')
+		})
+}
 ```
-node --harmony_default_parameters lib/add_operators_to_conversations.js <user> <password> <operator_1> <operator_2> <operator_...> <operator_n>
-```
+
 
 ---
 
-With :heart: by [Yalo](http://www.yalochat.com/)
+Create with :heart: by [Yalo](https://github.com/yalochat)
